@@ -1,0 +1,21 @@
+uuid: c9611b15-afe7-43ef-856a-e53b0bca2a41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_working
+    - node.type.place
+id: node.place.field_end_working
+field_name: field_end_working
+entity_type: node
+bundle: place
+label: 'end working'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1667736226
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

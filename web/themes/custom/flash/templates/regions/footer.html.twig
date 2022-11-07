@@ -1,0 +1,24 @@
+{% if logged_in and show_footer %}
+	<footer role="contentinfo" class="layout_footer">
+		<div class="layout_footer_content_wrapper layout_footer--{{footer_layout + 1}}_columns">
+			{% if footer_layout == '0' %}
+				{{ page.footer_first }}
+			{% endif %}
+			{% if footer_layout == '1' %}
+				{{ page.footer_first }}
+				{{ page.footer_second }}
+			{% endif %}
+			{% if footer_layout == '2' %}
+				{{ page.footer_first }}
+				{{ page.footer_second }}
+				{{ page.footer_third }}
+			{% endif %}
+			{% if footer_layout == '3' %}
+				{{ page.footer_first }}
+				{{ page.footer_second }}
+				{{ page.footer_third }}
+				{{ page.footer_fourth }}
+			{% endif %}
+		</div>
+	</footer>
+{% endif %}

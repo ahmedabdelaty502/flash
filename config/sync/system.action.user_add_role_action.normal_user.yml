@@ -1,0 +1,14 @@
+uuid: 6169a197-082a-4b14-9c6a-a293ad3ff7bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.normal_user
+  module:
+    - user
+id: user_add_role_action.normal_user
+label: 'Add the normal user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: normal_user

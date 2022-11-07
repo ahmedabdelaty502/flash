@@ -1,0 +1,21 @@
+uuid: 58a5cd3f-3e02-4a66-8fe9-f2017ad4b245
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_working
+    - node.type.place
+id: node.place.field_start_working
+field_name: field_start_working
+entity_type: node
+bundle: place
+label: 'start working'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1667736202
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

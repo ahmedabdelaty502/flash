@@ -1,0 +1,38 @@
+uuid: e462ab5b-2b3d-4632-9209-a7f5bf76a696
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.place.field_address
+    - field.field.node.place.field_category
+    - field.field.node.place.field_description
+    - field.field.node.place.field_end_working
+    - field.field.node.place.field_image
+    - field.field.node.place.field_latitude
+    - field.field.node.place.field_longitude
+    - field.field.node.place.field_special
+    - field.field.node.place.field_start_working
+    - node.type.place
+  module:
+    - user
+id: node.place.teaser
+targetEntityType: node
+bundle: place
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_category: true
+  field_description: true
+  field_end_working: true
+  field_image: true
+  field_latitude: true
+  field_longitude: true
+  field_special: true
+  field_start_working: true

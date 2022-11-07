@@ -1,0 +1,23 @@
+uuid: 4d7acc8c-ffb0-4f65-ae0d-b3ee648b2876
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_special
+    - node.type.place
+  module:
+    - options
+id: node.place.field_special
+field_name: field_special
+entity_type: node
+bundle: place
+label: Special
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

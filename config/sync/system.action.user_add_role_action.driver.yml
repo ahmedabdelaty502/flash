@@ -1,0 +1,14 @@
+uuid: 0a7901d7-cb79-4683-9b48-0e15ce2f1987
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.driver
+  module:
+    - user
+id: user_add_role_action.driver
+label: 'Add the driver role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: driver

@@ -1,0 +1,22 @@
+uuid: 74f8ccf2-8875-41af-8c43-ecbe2a357e19
+langcode: en
+status: false
+dependencies:
+  theme:
+    - flash
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: flash_primary_local_tasks
+theme: flash
+region: header
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

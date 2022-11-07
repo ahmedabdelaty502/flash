@@ -1,0 +1,19 @@
+{% if show_banner and is_front and logged_in %}
+	<div id="banner" class="banner {{banner_type}}">
+		{{ attach_library('flash/banner') }}
+		<style>
+			{% for image in banner_image_paths %}
+				.panel--{{loop.index}}{
+					background-image: url({{image}})
+				}
+			{% endfor %}
+		</style>
+
+		{% for image in banner_image_paths %}
+			<div class='panel panel--{{loop.index}} {{ loop.index == 1 ? ' active' :' ' }}'>
+				<h4 class='panel_heading'>{{title + loop.index}}</h4>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endif %}

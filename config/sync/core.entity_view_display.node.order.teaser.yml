@@ -1,0 +1,44 @@
+uuid: 02096bf2-baec-4341-b65b-f97b151cffb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.order.field_address
+    - field.field.node.order.field_custom_order
+    - field.field.node.order.field_deliver_price
+    - field.field.node.order.field_description
+    - field.field.node.order.field_driver
+    - field.field.node.order.field_latitude
+    - field.field.node.order.field_longitude
+    - field.field.node.order.field_order_status
+    - field.field.node.order.field_phone
+    - field.field.node.order.field_place
+    - field.field.node.order.field_total_price
+    - field.field.node.order.field_user
+    - node.type.order
+  module:
+    - user
+id: node.order.teaser
+targetEntityType: node
+bundle: order
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_custom_order: true
+  field_deliver_price: true
+  field_description: true
+  field_driver: true
+  field_latitude: true
+  field_longitude: true
+  field_order_status: true
+  field_phone: true
+  field_place: true
+  field_total_price: true
+  field_user: true

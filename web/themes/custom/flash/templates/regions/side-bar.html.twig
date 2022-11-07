@@ -1,0 +1,5 @@
+{% if page.side_bar and logged_in and show_sidebar %}
+	<aside class="layout-sidebar" role="complementary" position="{{sidebar_position}}" direction={{direction}}>
+		{{ page.side_bar }}
+	</aside>
+{% endif %}

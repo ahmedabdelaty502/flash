@@ -1,0 +1,29 @@
+uuid: 19969e30-59d3-4c85-ad78-c6312c006652
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_place
+    - node.type.place
+    - node.type.product
+id: node.product.field_place
+field_name: field_place
+entity_type: node
+bundle: product
+label: place
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      place: place
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: b83addf0-0652-403a-9335-7c946b1b4980
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order
+    - node.type.order
+    - node.type.order_item
+id: node.order_item.field_order
+field_name: field_order
+entity_type: node
+bundle: order_item
+label: order
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      order: order
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,37 @@
+uuid: 035c59b9-3e84-43c8-aa10-fa3a96d1a143
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: order_status
+label: 'order status'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 1
+      published: true
+      default_revision: true
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - draft
+        - published
+      to: published
+      weight: 1
+  entity_types: {  }

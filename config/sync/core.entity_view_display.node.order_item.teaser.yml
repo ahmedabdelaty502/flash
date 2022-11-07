@@ -1,0 +1,30 @@
+uuid: 804fbe9b-a91c-4904-a4f1-6d8173205c71
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.order_item.field_description
+    - field.field.node.order_item.field_order
+    - field.field.node.order_item.field_product
+    - field.field.node.order_item.field_quantity
+    - field.field.node.order_item.field_total_price
+    - node.type.order_item
+  module:
+    - user
+id: node.order_item.teaser
+targetEntityType: node
+bundle: order_item
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_description: true
+  field_order: true
+  field_product: true
+  field_quantity: true
+  field_total_price: true

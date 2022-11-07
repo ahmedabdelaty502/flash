@@ -1,0 +1,29 @@
+uuid: 8b03ba2f-5b5a-4144-a485-424a5d6a62b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product
+    - node.type.order_item
+    - node.type.product
+id: node.order_item.field_product
+field_name: field_product
+entity_type: node
+bundle: order_item
+label: product
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

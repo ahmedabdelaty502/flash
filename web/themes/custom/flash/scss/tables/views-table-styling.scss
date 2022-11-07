@@ -1,0 +1,13 @@
+/*-------------------------------------------*\
+note: this css affects
+ 1- views which have table as it's format and only the main table not any table included under this table
+ 2-  navigation of views which have table as it's format
+Index------------------------------
+   $1. table-views styling
+   $2. table-views-navigation styling
+\*-------------------------------------------*/
+
+@import "variables";
+@import "table";
+@import "nav";
+

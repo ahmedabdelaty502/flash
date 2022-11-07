@@ -1,0 +1,61 @@
+diff --git a/core/modules/views/config/schema/views.filter.schema.yml b/core/modules/views/config/schema/views.filter.schema.yml
+index 1eb09007ae..26506c8e6c 100644
+--- a/core/modules/views/config/schema/views.filter.schema.yml
++++ b/core/modules/views/config/schema/views.filter.schema.yml
+@@ -128,6 +128,20 @@ views.filter.many_to_one:
+       type: boolean
+       label: 'Reduce duplicate'
+
++views.filter.entity_reference:
++  type: views.filter.many_to_one
++  label: 'Entity reference'
++  mapping:
++    sub_handler:
++      type: string
++      label: 'Selection handler'
++    widget:
++      type: string
++      label: 'Selection type'
++    sub_handler_settings:
++      type: entity_reference_selection.[%parent.sub_handler]
++      label: 'Selection handler settings'
++
+ views.filter.standard:
+   type: views_filter
+   label: 'Standard'
+diff --git a/core/modules/views/views.views.inc b/core/modules/views/views.views.inc
+index 2f88006d1a..1da2de7939 100644
+--- a/core/modules/views/views.views.inc
++++ b/core/modules/views/views.views.inc
+@@ -767,9 +767,10 @@ function views_field_default_views_data(FieldStorageConfigInterface $field_stora
+ /**
+  * Implements hook_field_views_data().
+  *
+- * The function implements the hook in behalf of 'core' because it adds a
+- * relationship and a reverse relationship to entity_reference field type, which
+- * is provided by core.
++ * The function implements the hook in behalf of 'core' because it updates
++ * filters to use the entity_reference handler, adds a relationship and a
++ * reverse relationship to entity_reference field type, which is provided by
++ * core.
+  */
+ function core_field_views_data(FieldStorageConfigInterface $field_storage) {
+   $data = views_field_default_views_data($field_storage);
+@@ -794,6 +795,17 @@ function core_field_views_data(FieldStorageConfigInterface $field_storage) {
+     $field_name = $field_storage->getName();
+
+     if ($target_entity_type instanceof ContentEntityTypeInterface) {
++      foreach ($table_data as $table_field_name => $table_field_data) {
++        if (isset($table_field_data['filter']) && $table_field_name != 'delta') {
++          // Create separate views data to allow use of the entity_reference
++          // filter. Numeric filter should still be available for use.
++          $entity_reference = $data[$table_name][$table_field_name];
++          $entity_reference['filter']['id'] = 'entity_reference';
++          $entity_reference['title'] = $entity_reference['title'] . ' ' . t('as a Reference filter');
++          $data[$table_name][$table_field_name . '_reference'] = $entity_reference;
++        }
++      }
++
+       // Provide a relationship for the entity type with the entity reference
+       // field.
+       $args = [

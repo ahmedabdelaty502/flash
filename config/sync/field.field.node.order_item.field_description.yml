@@ -1,0 +1,19 @@
+uuid: 341c95bb-5a5c-4edc-aee5-0be34ed70ff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.order_item
+id: node.order_item.field_description
+field_name: field_description
+entity_type: node
+bundle: order_item
+label: description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,9 @@
+sm_dashboard.landing_page:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\sm_dashboard\Controller\DashboardController::landingPage'
+    _title: 'الاحصائيات'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _permission: 'access content'

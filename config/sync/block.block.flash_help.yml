@@ -1,0 +1,22 @@
+uuid: 07c406ea-fa18-4641-918d-38de6d35a216
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - flash
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: flash_help
+theme: flash
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

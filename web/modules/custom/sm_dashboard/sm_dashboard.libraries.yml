@@ -1,0 +1,4 @@
+sm_dashboard.main:
+  css:
+    theme:
+      assets/css/main.css: {}

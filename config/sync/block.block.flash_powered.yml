@@ -1,0 +1,22 @@
+uuid: a0b4ba19-0bb4-4360-813b-f38b854f2f8c
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - flash
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: flash_powered
+theme: flash
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

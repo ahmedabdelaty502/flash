@@ -1,0 +1,16 @@
+name: flash
+type: theme
+base theme: stable9
+description: '<p> flash is a light weight modern Drupal 8, 9 theme'
+package: sales_management
+core_version_requirement: ^9.4 || ^10
+libraries:
+  - flash/global-styling # Library for all global css. These css will be loaded on every pages.
+regions:
+  header: 'Header'
+  content: Content
+  side_bar: 'side bar'
+  footer_first: 'footer first'
+  footer_second: 'footer second'
+  footer_third: 'footer third'
+  footer_fourth: 'footer fourth'

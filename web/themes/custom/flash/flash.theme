@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Contains flash theme override and preprocess functions.
+ */
+use Drupal\file\Entity\File;
+
+function flash_preprocess_page(array &$variables)
+{
+    $currentUser = \Drupal::entityTypeManager()->getStorage('user')->load(\Drupal::currentUser()->id());
+    $userRoleMachineName= $currentUser->getRoles()[1];
+    $variables['user_role'] = $userRoleMachineName == 'administrator' ? 'admin' : 'not_admin';
+    $variables['direction'] = $variables['language']->getDirection();
+    $variables['show_sidebar'] = theme_get_setting('show_sidebar');
+    $variables['sidebar_position'] = theme_get_setting('sidebar_position');
+    $variables['header_position'] = theme_get_setting('navigation_position');
+    $variables['header_sticky'] = theme_get_setting('navigation_sticky') ? 'true' : 'false';
+    $variables['show_footer'] = theme_get_setting('show_footer');
+    $variables['footer_layout'] = theme_get_setting('footer_layout');
+    $variables['theme_color_mode'] = theme_get_setting('theme_color_mode');
+    $variables['google_font'] = theme_get_setting('google_font');
+    $variables['show_banner'] = theme_get_setting('show_banner');
+    if (theme_get_setting('show_banner')) {
+        $bannerType = theme_get_setting('banner_type');
+        $variables['banner_type'] = $bannerType;
+        $imagesPaths = [];
+        if ($bannerType == "static") {
+            $static_banner_image_id = theme_get_setting('static_image', 'flash');
+            if (!empty($static_banner_image_id)) {
+                $static_banner_image_file = File::load($static_banner_image_id[0]);
+                $static_banner_image_file->save();
+                $fileService = \Drupal::service('file.usage');
+                $fileService->add($static_banner_image_file, 'flash', 'theme', $static_banner_image_id[0]);
+                if (!empty($static_banner_image_file)) {
+                    $image_uri = $static_banner_image_file->getFileUri();
+                    $imgPath = \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+                    array_push($imagesPaths, $imgPath);
+                };
+            }
+        } 
+        else {
+            for ($i = 1; $i <= 5; $i++) {
+                $multiple_banner_image_id = theme_get_setting('banner_image'.$i, 'flash');
+                if (!empty($multiple_banner_image_id)) {
+                    $banner_image_file = File::load($multiple_banner_image_id[0]);
+                    $banner_image_file->save();;
+                    $banner_image_file_usage = \Drupal::service('file.usage');
+                    $banner_image_file_usage->add($banner_image_file, 'flash', 'theme', $multiple_banner_image_id[0]);
+                    if (!empty($banner_image_file)) {
+                        $image_uri = $banner_image_file->getFileUri();
+                        $imgPath = \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+                        array_push($imagesPaths, $imgPath);
+                    };
+                };
+            }
+        }
+        $variables['banner_image_paths'] = $imagesPaths;
+    }
+}

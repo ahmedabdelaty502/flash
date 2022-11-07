@@ -1,0 +1,23 @@
+{
+  "name": "vf_notifications_gulp",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+        "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-livereload": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "sass": "*"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

@@ -1,0 +1,19 @@
+uuid: 031199cf-720f-4c09-a4f8-c74e5ebf3c7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_custom_order
+    - node.type.order
+id: node.order.field_custom_order
+field_name: field_custom_order
+entity_type: node
+bundle: order
+label: 'custom order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

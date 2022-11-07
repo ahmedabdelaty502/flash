@@ -1,0 +1,33 @@
+<?php
+
+
+/**
+ * Implementing hook_page_attachments_alter().
+ */
+
+function sm_dashboard_page_attachments_alter(&$page)
+{
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if ($route_name === "sm_dashboard.landing_page") {
+    $page['#attached']['library'][] = 'sm_dashboard/sm_dashboard.main';
+  }
+}
+
+
+
+/**
+ * Implementing hook_theme().
+ */
+function sm_dashboard_theme($existing, $type, $theme, $path)
+{
+  return [
+    'landing_page' => [
+      'render element' => 'content',
+      'variables' => [
+        'clients' => null,
+      ],
+    ]
+  ];
+}
+

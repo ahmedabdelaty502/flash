@@ -1,0 +1,36 @@
+uuid: 429b3d9c-b086-43c4-8c98-bc3cd21b4cb1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_order_status
+field_name: field_order_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: pending
+      label: pending
+    -
+      value: driver_accept
+      label: 'Driver Accept'
+    -
+      value: reject
+      label: Reject
+    -
+      value: driver_on_way
+      label: 'Driver on way'
+    -
+      value: order_delivered
+      label: 'order delivered'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

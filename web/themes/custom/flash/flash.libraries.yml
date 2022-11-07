@@ -1,0 +1,57 @@
+# These will be loaded on every pages.
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+
+  js:
+    js/main_navigation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+banner:
+  version: VERSION
+  css:
+    theme:
+      css/sliders/banner.css: {}
+  js:
+    js/sliders/banner.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+# system tables
+table-styling:
+  css:
+    theme:
+      css/tables/views-table-styling.css: {}
+  js:
+    js/tables/views-table-styling.js: {}
+  dependencies:
+    - core/jquery
+
+# Google Fonts from CDN
+googlefonts_cdn:
+  css:
+    theme:
+      https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap: { type: external }
+
+# Google Fonts from local
+googlefonts_local:
+  css:
+    theme:
+      css/fonts/fonts.css: {}
+
+light_theme:
+  css:
+    theme:
+      css/theme_colors/light_theme.css: {}
+
+dark_theme:
+  css:
+    theme:
+      css/theme_colors/dark_theme.css: {}

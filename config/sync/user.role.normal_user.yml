@@ -1,0 +1,9 @@
+uuid: bd9ad470-e041-4623-96cc-72396d218f3b
+langcode: en
+status: true
+dependencies: {  }
+id: normal_user
+label: 'normal user'
+weight: 5
+is_admin: null
+permissions: {  }

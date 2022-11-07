@@ -1,0 +1,95 @@
+<?php
+
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\CssCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function sm_client_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if($form_id == 'node_client_operation_form' || $form_id == 'node_client_operation_edit_form'){
+    $form['#attached']['library'][] = 'sm_client/sm_client.main';
+    $form['field_operation_type']['widget']['#ajax'] = [
+      'method' => 'replace',
+      'event' => 'change',
+      'callback' => 'hideShowFields'
+    ];
+   if(!$form['title']['widget'][0]['value']['#default_value']) {
+      $form['title']['widget'][0]['value']['#default_value'] = 0;
+    }
+    $form['actions']['submit']['#submit'][] = 'client_operation_submit';
+    if($form_id == 'node_client_operation_edit_form'){
+      $form['field_operation_type']['#attributes']['class'][]='display-none';
+      if($form['field_operation_type']['widget']['#default_value'][0] == 'product'){
+        $form['title']['#attributes']['class'][]='display-none';
+        $form['field_receipt_number']['#attributes']['class'][]='display-none';
+        $form['field_payment_method']['#attributes']['class'][]='display-none';
+      }else{
+        $form['field_product']['#attributes']['class'][]='display-none';
+        $form['field_quantity']['#attributes']['class'][]='display-none';
+      }
+    }
+
+  }
+  if($form_id == 'node_product_form' || $form_id == 'node_product_edit_form') {
+    $form['actions']['submit']['#submit'][] = 'product_submit';
+  }
+  if($form_id == 'node_clients_form' || $form_id == 'node_clients_edit_form') {
+    $form['actions']['submit']['#submit'][] = 'client_submit';
+  }
+}
+/**
+ * used as an ajax call back for the dropdown menus.
+ */
+function hideShowFields(array &$form, FormStateInterface $form_state)
+{
+  $response = new AjaxResponse();
+  if($form_state->getValue('field_operation_type')[0]['value'] == 'payment'){
+    $response->addCommand(new CssCommand('#edit-field-quantity-wrapper', ['display' => 'none']));
+    $response->addCommand(new CssCommand('#edit-field-product-wrapper', ['display' => 'none']));
+    $response->addCommand(new CssCommand('#edit-title-wrapper', ['display' => 'unset']));
+    $response->addCommand(new CssCommand('#edit-field-payment-method-wrapper', ['display' => 'unset']));
+    $response->addCommand(new CssCommand('#edit-field-receipt-number-wrapper', ['display' => 'unset']));
+
+  }else{
+    $response->addCommand(new CssCommand('#edit-field-payment-method-wrapper', ['display' => 'none']));
+    $response->addCommand(new CssCommand('#edit-field-receipt-number-wrapper', ['display' => 'none']));
+    $response->addCommand(new CssCommand('#edit-title-wrapper', ['display' => 'none']));
+    $response->addCommand(new CssCommand('#edit-field-quantity-wrapper', ['display' => 'unset']));
+    $response->addCommand(new CssCommand('#edit-field-product-wrapper', ['display' => 'unset']));
+  }
+  return $response;
+}
+function client_operation_submit(&$form, FormStateInterface $form_state)
+{
+  $ClientService = new \Drupal\sm_client\Service\ClientService();
+  if($form_state->getValue('field_product')){
+    $price = $ClientService->getProductPrice($form_state->getValue('field_product')[0]['target_id']);
+    $client_op = $form_state->getFormObject()->getEntity();
+    $total_price = $price* (int)$form_state->getValue('field_quantity')[0]['value'];
+    $client_op->set('title', $total_price );
+    $client_op->save();
+  }
+  if($form_state->getValue('field_client')){
+    $ClientService->updateClientAmount($form_state->getValue('field_client')[0]['target_id']);
+  }
+  $form_state->setRedirect('view.clients_operations.page_1');
+}
+function product_submit(&$form, FormStateInterface $form_state)
+{
+  $form_state->setRedirect('view.products.page_1');
+}
+
+function client_submit(&$form, FormStateInterface $form_state)
+{
+  $form_state->setRedirect('view.clients.page_1');
+}
+
+function sm_client_entity_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if($entity->bundle() == 'client_operation'){
+    $ClientService = new \Drupal\sm_client\Service\DashboardService();
+    $ClientService->updateClientAmount($entity->get('field_client')->getValue()[0]['target_id']);
+  }
+}

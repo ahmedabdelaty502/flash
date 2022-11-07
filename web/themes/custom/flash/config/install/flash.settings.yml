@@ -1,0 +1,11 @@
+# Social icons
+show_sidebar: 1
+sidebar_position: 'right'
+header_position: 'top'
+header_sticky: 0
+show_footer: 1
+footer_layout: '4'
+theme_color_mode: 'light'
+google_font: 'local'
+show_banner: 1
+banner_type: 'static'

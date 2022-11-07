@@ -1,0 +1,82 @@
+/*=========================================================*/
+/* table-views-navigation styling */
+.view-content + .pager {
+  box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, .2);
+  height: 11rem;
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .pager__items {
+    width: 100%;
+  }
+
+  li.pager__item {
+    a {
+      color: $pager-text;
+      font-weight: bold;
+      line-height: 0;
+      padding: 8px 13px;
+      border-radius: 2px;
+      border: solid 1px $pager-text;
+      background-color: $pager_background;
+      display: unset;
+    }
+
+    &.is-active {
+      a {
+        color: white;
+        background-color: $header-text;
+        border: solid 1px $header-text;
+      }
+    }
+
+    &--next, &--last, &--previous, &--first {
+      padding: 0 1rem;
+
+      a {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+
+        img {
+          vertical-align: middle;
+          margin-top: -6px;
+          height: 21px;
+        }
+      }
+    }
+  }
+}
+
+.view-footer {
+  margin: 1.5rem 0 0 3rem;
+}
+
+@media only screen and (max-width: 850px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  .view-content + .pager {
+    justify-content: space-around;
+    height: 8rem;
+
+    li.pager__item {
+      a {
+        color: $pager-text;
+        padding: 0px .5vw;
+        border-radius: unset;
+        border: unset;
+        background-color: unset;
+        display: unset;
+      }
+
+      &.is-active {
+        a {
+          color: black;
+          background-color: unset;
+          border: unset;
+
+        }
+      }
+    }
+  }
+}

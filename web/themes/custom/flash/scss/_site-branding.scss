@@ -1,0 +1,9 @@
+#site-branding {
+  padding-bottom: 1.6rem;
+    background-color: var(--white);
+    display: flex;
+    flex-flow: column nowrap;
+    .site_name{
+      display: none;
+    }
+  }

@@ -1,0 +1,8 @@
+:root {
+    --white: #242422;
+    --black: #fafafa;
+    --main_nav_sticky_border: #4c5861;
+    --main_nav_notSticky_border: blue;
+    --main_nav_hover_background: #74c716;
+    --base-padding: 2.5rem;
+    }

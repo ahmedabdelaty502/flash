@@ -1,0 +1,40 @@
+.layout_footer {
+  background-color: var(--black);
+  color: var(--white);
+  a {
+    color: var(--white);
+  }
+  height: fit-content;
+  padding: 3.2rem;
+  .layout_footer_content_wrapper {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    > .region {
+      flex: 1 1 0;
+      min-width: 2.4rem;
+      overflow-x: auto;
+    }
+  }
+  &--2_columns {
+    gap: 3.2rem;
+  }
+  &--3_columns {
+    gap: 2.4rem;
+  }
+  &--4_columns {
+    gap: 1.6rem;
+  }
+  @media screen and (min-width: 1200px) {
+    .layout_footer_content_wrapper {
+      max-width: $max-width;
+      margin: auto;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    &--2_columns,
+    &--3_columns,
+    &--4_columns {
+      gap: 3.2rem;
+    }
+  }
+}

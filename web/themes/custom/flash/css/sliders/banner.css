@@ -1,0 +1,45 @@
+#banner.static {
+  height: 30rem;
+}
+#banner.static .panel {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#banner.static_multiple {
+  height: 30rem;
+  background-color: black;
+  flex-basis: 90%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#banner.static_multiple .panel {
+  height: clamp(15rem, 50vh, 20rem);
+  padding: 1rem;
+  flex-grow: 0.5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 0 2px 5px black;
+  /* box-shadow: 0 20px 100px black; */
+  display: flex;
+  align-items: flex-end;
+  padding-left: 1rem;
+  transition: flex 0.5s ease;
+  font-size: 2rem;
+}
+#banner.static_multiple .panel.active {
+  flex-grow: 5;
+}
+#banner.static_multiple.panel .panel_heading {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+#banner.static_multiple .panel.active .panel_heading {
+  opacity: 1;
+}

@@ -1,0 +1,43 @@
+.layout-header {
+  z-index: 10;
+  background-color: var(--white);
+  height: 9.5rem;
+  transition: all .3s ease;
+  padding: 0 2.4rem;
+  .header_region {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &[sticky="true"][position="top"] {
+    position: sticky;
+    &[user_role="admin"]{
+      top: 79px;
+    }
+    &.scroll_down {
+      box-shadow: 0 0 20px 0 rgb(0 0 0 / 70%);
+      border-bottom: 1px solid var(--main_nav_sticky_border);
+      border-bottom-color: var(--white);
+    }
+  }
+  &[sticky="false"][position="top"] {
+    //  border-bottom: 5px solid var(--main_nav_notSticky_border);
+    border-bottom: .5rem solid;
+    border-image-slice: 1;
+    // border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    border-image-source: linear-gradient(to right, #74c716 , rgba(255,255,255,0));
+  
+  }
+  #block-sales-management-main-menu{
+    flex: 1 1 0;
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header_region {
+    max-width: $max-width;
+    margin: auto;
+  }
+}

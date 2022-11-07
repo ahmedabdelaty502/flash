@@ -1,0 +1,20 @@
+uuid: 0856bb2e-c4bc-45a1-959b-0421d4c7d9ea
+langcode: en
+status: false
+dependencies:
+  theme:
+    - flash
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: flash_primary_admin_actions
+theme: flash
+region: header
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

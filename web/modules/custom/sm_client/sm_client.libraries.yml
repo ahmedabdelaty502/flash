@@ -1,0 +1,4 @@
+sm_client.main:
+  css:
+    theme:
+      assets/css/main.css: {}

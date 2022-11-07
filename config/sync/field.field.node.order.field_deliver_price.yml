@@ -1,0 +1,23 @@
+uuid: 4c82475b-5168-42ec-a163-8c009ff06f9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deliver_price
+    - node.type.order
+id: node.order.field_deliver_price
+field_name: field_deliver_price
+entity_type: node
+bundle: order
+label: 'deliver price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -1,0 +1,8 @@
+$max-width: 1300px;
+$base-size: 16px;
+$type-scale: 1.1;
+$h5: calc(var($base-size) * var($type-scale));
+$h4: calc(var($h5) * var($type-scale));
+$h3: calc(var($h4) * var($type-scale));
+$h2: calc(var($h3) * var($type-scale));
+$h1: calc(var($h2) * var($type-scale));

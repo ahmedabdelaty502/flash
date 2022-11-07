@@ -1,0 +1,19 @@
+uuid: 4f0e9949-21a0-4f1b-bbc8-88701000157c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_custom_order
+field_name: field_custom_order
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

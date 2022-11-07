@@ -1,0 +1,22 @@
+uuid: 44ee9d94-ca95-43e8-9f66-0c67ddddbf5d
+langcode: en
+status: false
+dependencies:
+  theme:
+    - flash
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: flash_secondary_local_tasks
+theme: flash
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

@@ -1,0 +1,32 @@
+uuid: a929f6b1-8863-4337-acfc-c8421b977c2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.category.field_image
+    - node.type.category
+  module:
+    - image
+    - user
+id: node.category.default
+targetEntityType: node
+bundle: category
+mode: default
+content:
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

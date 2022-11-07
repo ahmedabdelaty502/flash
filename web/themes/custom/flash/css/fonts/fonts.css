@@ -1,0 +1,27 @@
+/* Fonts
+---------------------------------------- */
+
+@font-face {
+  font-family: "El Messiri";
+  font-weight: regular;
+  src: local("OpenSans-Regular"),
+    url("../fonts/El_Messiri/ElMessiri-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "El Messiri";
+  font-weight: bold;
+  src: local("ElMessiri-Bold"),
+    url("../fonts/El_Messiri/ElMessiri-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: "El Messiri";
+  font-weight: medium;
+  src: local("ElMessiri-Medium"),
+    url("../fonts/El_Messiri/ElMessiri-Medium.ttf") format("ttf");
+}
+@font-face {
+  font-family: "El Messiri";
+  font-weight: SemiBold;
+  src: local("ElMessiri-SemiBold"),
+    url("../fonts/El_Messiri/ElMessiri-SemiBold.ttf") format("ttf");
+}

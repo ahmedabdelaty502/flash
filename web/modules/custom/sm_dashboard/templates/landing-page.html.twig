@@ -1,0 +1,29 @@
+<div class="main">
+  <section class="card clients">
+      <div class="card-body">
+        <h2 class="card-title">العملاء</h2>
+        <h3 class="card-subtitle mb-2 text-muted">اجمالي مبلغ المبيعات</h3>
+        <p class="card-text">{{ clients.payment }} جنية </p>
+        <h3 class="card-subtitle mb-2 text-muted">اجمالي المبلغ المستلم</h3>
+        <p class="card-text">{{ clients.product }} جنية </p>
+        <a href="/clients" class="card-link">عرض العملاء</a>
+      </div>
+  </section>
+
+  <section class="card clients">
+    <div class="card-body">
+      <h2 class="card-title">عدد العملاء</h2>
+      <p class="card-text">{{ clients.count_clients }}</p>
+      <a href="/clients" class="card-link">عرض العملاء</a>
+    </div>
+  </section>
+
+
+  <section class="card clients">
+    <div class="card-body">
+      <h2 class="card-title">عدد المنتجات</h2>
+      <p class="card-text">{{ clients.count_products }}</p>
+      <a href="/products" class="card-link">عرض المنتجات</a>
+    </div>
+  </section>
+</div>
